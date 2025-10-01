@@ -614,3 +614,19 @@ function maxDifference(arr) {
 }
 
 console.log(maxDifference([2, 10, 1, 7])); // 9 (10 - 1)
+
+// sum values of string input
+const ab = "5";
+const bc = "10";
+
+// Problem: "5" + "10" = "510"  (string concatenation)
+console.log(ab + bc);
+
+// Fix: Convert to number
+console.log(Number(ab) + Number(bc)); // 15
+
+//null and undefined error handeling
+const arr = [10, null, undefined, "20", NaN];
+
+const sum = arr.reduce((acc, val) => acc + (Number(val) || 0), 0);
+console.log(sum); // 30

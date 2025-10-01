@@ -96,13 +96,13 @@ console.log(x); // undefined
 // Making elements render more uniformly across different browsers and devices.
 
 
-// ***mrmory lecakage wy happend?
+// ***memory lecakage wy happend?
 // Memory leaks in frontend development (including React and Next.js) occur 
 // when your application retains memory that is no longer needed, preventing the browser from reclaiming it.
 //  Over time, this can lead to performance degradation and even application crashes.
 
 //  (  memory leaks  bescicaly main je karon e hoi seta hosse amdr application unnecessary amon kico Data
-//     dhore rakhe jeta  asole amader dorkr nei.and somoier sate sate setar poriman atoi esi hoie jai je 
+//     dhore rakhe jeta  asole amader dorkr nei.and somoier sate sate setar poriman atoi besi hoie jai je 
 //     akta somoi por amdr application er perfermance kome jai and akta somoi por seta crached Kore.
 //  )
 
@@ -289,3 +289,56 @@ function Search() {
 }
 
 // export default Search;
+
+
+
+//how to call server action in client component in next js 13?
+// 1. Define the server action in a server component or a separate file.
+// 2. Import the server action into your client component.
+// 3. Call the server action from an event handler or useEffect in the client component.
+"use server";
+
+export async function getProducts(search) {
+  const res = await fetch(`https://fakestoreapi.com/products?search=${search}`, {
+    cache: "no-store", // always fresh
+  });
+
+  if (!res.ok) throw new Error("Failed to fetch products");
+
+  return res.json();
+}
+
+"use client";
+import { useState } from "react";
+import { getProducts } from "../actions"; // import server action
+
+  function ProductSearch() {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+  const handleSearch = async () => {
+    try {
+      const data = await getProducts(query); // ✅ calls server action
+      setResults(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return (
+    <div>
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search product..."
+      />
+      <button onClick={handleSearch}>Search</button>
+
+      <ul>
+        {results.map((p) => (
+          <li key={p.id}>{p.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
