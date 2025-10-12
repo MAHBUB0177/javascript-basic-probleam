@@ -254,7 +254,7 @@ class Car {
 // It does not return any value (not even void in some languages like Java, C++).
 // It runs automatically when you create a new object of the class.
 
-example:
+// example:
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -271,3 +271,17 @@ person1.greet(); // Output: Hello, my name is Alice, and I am 30 years old.
 
 
 // memory lickage nie porasuna korte hbe ?
+
+//compiler vs interpreter
+
+//complier:
+// 1.Translates the entire source code into machine code at once, producing an executable file.
+// 2.Faster after compilation — because the program is already translated to machine code.
+// 3.Shows all errors at once after compilation.
+(C, C++, Go, Rust)
+
+//Interpreter:
+// 1.Translates and executes the code line by line, without producing a separate executable.
+// 2.Slower — because translation happens during execution (every line is interpreted each time).
+// 3.Stops immediately when an error occurs, showing one error at a time.
+(Python, JavaScript, PHP, Ruby)
