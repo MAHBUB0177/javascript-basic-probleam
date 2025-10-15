@@ -342,3 +342,36 @@ import { getProducts } from "../actions"; // import server action
     </div>
   );
 }
+
+
+// react life cycle??
+// 1.Mounting — Component is created and inserted into the DOM.
+// 2.Updating — Component is re-rendered when its state or props change.
+// 3.Unmounting — Component is removed from the DOM.
+
+MOunting:
+useEffect(() => {
+  // Runs once when the component mounts
+  console.log("Mounted!");
+  
+  return () => {
+    // Optional cleanup (like componentWillUnmount)
+  };
+}, []); // Empty dependency array → runs once
+
+
+updating:
+useEffect(() => {
+  console.log("Component updated!");
+}, [someStateOrProp]);
+// The effect runs whenever the dependency (someStateOrProp) changes.
+
+unmounting:
+
+useEffect(() => {
+  // return () => {
+  //   console.log("Component unmounted!");
+  // };
+  const timer = setInterval()
+  return () => clearInterval(timer); // cleanup
+}, []);
