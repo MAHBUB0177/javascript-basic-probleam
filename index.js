@@ -1027,3 +1027,95 @@ async function fetchData() {
 // ✅ Initial load time
 // ✅ App performance
 // ✅ User experience
+
+
+
+// Shallow Copy
+const original = {
+  name: "Alice",
+  address: { city: "Dhaka", zip: 1205 }
+};
+
+// Shallow copy using spread operator
+const shallowCopy = { ...original };
+
+shallowCopy.address.city = "Chittagong";
+
+console.log(original.address.city); // Output: "Chittagong" 😬 (changed in original)
+
+//nested object property share originial reference object
+
+
+// 🧠 2. Deep Copy:
+const original1= {
+  name: "Alice",
+  address: { city: "Dhaka", zip: 1205 }
+};
+
+// Deep copy
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+deepCopy.address.city = "Chittagong";
+
+console.log(original.address.city); // Output: "Dhaka" ✅ (unchanged)
+
+//That means changes in the copy do not affect the original.
+
+
+//missing number probleam
+function missingNumber(num) {
+
+  let max = Math.max(...num);
+  let min = Math.min(...num);
+  let result = [];
+
+  for (let i = min; i <= max; i++) {
+    if (!num.includes(i)) {   // check if number is missing
+      result.push(i);
+    }
+  }
+
+  return result;
+}
+
+// console.log(missingNumber([1, 3, 5, 6, 8, 9])); 
+// [2, 4, 7]
+
+
+//target value sum pair in array
+
+function targetValueSumPair(arr, target) {
+
+  for(let i=0;i<arr.length;i++){
+    for(let j=i+1;j<arr.length;j++){
+      if(arr[i]+arr[j]===target){
+        return [arr[i],arr[j]];
+      }
+    }
+  }
+
+
+}
+
+// console.log(targetValueSumPair([2, 7, 11, 15], 9));
+
+
+// find duplicate value
+function findDuplicates(arr) {
+    
+    let set=new Set();
+    let result=[];
+    
+    for(let i=0; i<arr.length; i++){
+   if (set.has(arr[i])) {
+            result.push(arr[i])
+        }
+        
+        set.add(arr[i])
+    }
+    
+    return result;
+
+  }
+
+// console.log(findDuplicates([1, 2, 3, 4, 3, 2, 5]));

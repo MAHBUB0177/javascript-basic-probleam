@@ -285,3 +285,21 @@ person1.greet(); // Output: Hello, my name is Alice, and I am 30 years old.
 // 2.Slower — because translation happens during execution (every line is interpreted each time).
 // 3.Stops immediately when an error occurs, showing one error at a time.
 (Python, JavaScript, PHP, Ruby)
+
+
+
+//docker actually how to work?
+// docker hosse akta image container jekhne amder full app and tar sob package,dependeny 
+// ak jaogai thake so local,stage or production jekono jaigai seta fluently kaj Kore.
+// kno package or dpendency or version related kno issue hoina.
+// docker akta image container create kore and seta server e push kore and run kore
+// chaile khub easily amra just ager imge e back korte pari faster rollback.
+
+
+// what is nginix and how it work?
+// At its core, Nginx is:
+// A web server → serves static content (HTML, CSS, JS, images, etc.).
+// A reverse proxy → forwards requests to backend servers (like Node.js, Django, etc.).
+// A load balancer → distributes requests among multiple backend servers.
+// A cache server → stores and serves frequently requested responses.
+// A mail proxy → handles IMAP/POP3/SMTP proxying.
