@@ -91,3 +91,31 @@
 
 
 
+/// how swr work
+
+// It’s a data fetching strategy and React hook library that helps you fetch, cache, and update data efficiently — similar to React Query.
+
+// It returns cached (stale) data immediately for fast UI.
+// Then it fetches fresh data in the background (revalidate).
+// Once new data comes in, it updates the UI automatically.
+
+import useSWR from "swr";
+
+// define a fetcher function
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+function Profile() {
+  const { data, error, isLoading } = useSWR('/api/user', fetcher);
+
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  return <div>Hello, {data.name}</div>;
+}
+
+// ✅ SWR handles:
+// Caching
+// Background revalidation
+// Refetch on focus
+// Refetch on reconnect
+// Error retries

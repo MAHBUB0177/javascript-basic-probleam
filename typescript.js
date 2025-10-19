@@ -71,6 +71,30 @@ console.log(x); // undefined
 // Settings for type checking, paths, aliases, and more
 
 
+//generic function in typescript?
+
+// function mydata<T>(data:T):T{
+//     return data
+// }
+
+// console.log(mydata(['swift','java']))
+//input hisebe jei type dibo setai nibe and output o setai dibe
+example:
+// function fruits(name:string|number):string|number{
+//     return data
+// }
+// fruits("apple")
+// fruits(6)
+// fruits(true)//get error
+// //replce that generic
+// function fruits1<T>(name:T):T{
+//     return name 
+// }
+
+// fruits1("apple")
+// fruits1(6)
+// fruits1(true)//get no  error=ja dibo tai return korbe
+
 // 1.cross browser functionality
 // 2.performance optimization
 // 3.memory lickage
