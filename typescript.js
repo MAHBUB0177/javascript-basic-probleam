@@ -86,6 +86,7 @@ example:
 // fruits("apple")
 // fruits(6)
 // fruits(true)//get error
+
 // //replce that generic
 // function fruits1<T>(name:T):T{
 //     return name 
